@@ -14,9 +14,11 @@ permissions:
 
 env:
   REGISTRY: ghcr.io
-  # GHCR exige nomes de imagem 100% minúsculos; toLower() normaliza o nome de
-  # usuário/organização (ex.: "ThaisRAquino" -> "thaisraquino").
-  IMAGE_NAMESPACE: ${{ toLower(github.repository_owner) }}/pedidos-veloz
+  # GHCR exige nomes de imagem 100% minúsculos. A sintaxe de expressões do
+  # GitHub Actions não tem uma função nativa de lowercase, então fixamos o
+  # valor já em minúsculo (equivalente a "ThaisRAquino" em minúsculas) em vez
+  # de tentar calcular isso dinamicamente.
+  IMAGE_NAMESPACE: thaisraquino/pedidos-veloz
 
 jobs:
   # ---- 1. Lint + testes unitários, em paralelo para os 4 serviços ----
