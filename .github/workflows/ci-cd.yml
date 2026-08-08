@@ -65,7 +65,13 @@ jobs:
           load: true
 
       - name: Scan de vulnerabilidades (Trivy) — não bloqueante no MVP
-        uses: aquasecurity/trivy-action@0.24.0
+        # Fixado pelo hash do commit (não pela tag) por boa prática de segurança:
+        # em março de 2026 esta action sofreu um ataque à cadeia de suprimentos
+        # (76 das 77 tags foram reapontadas maliciosamente via "git tag
+        # repointing"). Pinar por SHA impede que uma tag seja corrompida
+        # silenciosamente no futuro. Corresponde à tag v0.35.0, confirmada
+        # como não comprometida pelos mantenedores do projeto.
+        uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # v0.35.0
         continue-on-error: true
         with:
           image-ref: pedidos-veloz-${{ matrix.service }}:ci
