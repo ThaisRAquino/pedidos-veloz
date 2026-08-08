@@ -14,7 +14,9 @@ permissions:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAMESPACE: ${{ github.repository_owner }}/pedidos-veloz
+  # GHCR exige nomes de imagem 100% minúsculos; toLower() normaliza o nome de
+  # usuário/organização (ex.: "ThaisRAquino" -> "thaisraquino").
+  IMAGE_NAMESPACE: ${{ toLower(github.repository_owner) }}/pedidos-veloz
 
 jobs:
   # ---- 1. Lint + testes unitários, em paralelo para os 4 serviços ----
