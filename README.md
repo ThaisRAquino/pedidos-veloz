@@ -4,8 +4,6 @@ Projeto da disciplina Cloud DevOps: modernização da plataforma de pedidos da
 **Loja Veloz** (e-commerce de médio porte), do ambiente local em Docker
 Compose até produção em Kubernetes, com CI/CD, observabilidade e IaC.
 
-📺 **Vídeo pitch:** _[cole aqui o link do YouTube após gravar — roteiro em `docs/roteiro-video-pitch.md`]_
-
 📄 **Relatórios:** `docs/relatorio-teorico.pdf` e `docs/relatorio-tecnico-pratico.pdf`
 
 ---
